@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="ds/crack-the-code-design-system-7d289831-1c23-4574-a592-107238cbba6e/tokens/colors.css">
+  <link rel="stylesheet" href="ds/crack-the-code-design-system-7d289831-1c23-4574-a592-107238cbba6e/tokens/typography.css">
+  <link rel="stylesheet" href="ds/crack-the-code-design-system-7d289831-1c23-4574-a592-107238cbba6e/tokens/base.css">
+  <link rel="stylesheet" href="ds/crack-the-code-design-system-7d289831-1c23-4574-a592-107238cbba6e/styles.css">
+  <script src="ds/crack-the-code-design-system-7d289831-1c23-4574-a592-107238cbba6e/_ds_bundle.js"></script>
+  <script src="./image-slot.js"></script>
+  <title>Bienvenida · Fuera del Feed</title>
+  <style>
+    body{margin:0;background:#F2F6FC;text-wrap:pretty;-webkit-font-smoothing:antialiased;font-family:"NT Bau",system-ui,sans-serif;color:#001F19;}
+    a{color:#1F4FB0;}a:hover{color:#001F19;}
+    button{font-family:inherit;transition:transform .12s ease-out,background-color .15s ease-out;}
+    button:active{transform:scale(.97);}
+    button:focus-visible,a:focus-visible{outline:3px solid #2F6FE0;outline-offset:2px;}
+    @keyframes onair{0%,100%{opacity:1}50%{opacity:.35}}
+    @keyframes proIn{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+    @keyframes aura{0%,100%{box-shadow:0 0 0 0 rgba(86,145,255,0)}50%{box-shadow:0 0 0 7px rgba(86,145,255,.24)}}
+    [data-tap]{animation:aura 2.4s ease-in-out infinite;}
+    @media (prefers-reduced-motion:reduce){*{animation:none !important;transition:none !important;}}
+  </style>
+</helmet>
+<div lang="es" style="max-width:1080px;margin:0 auto;padding:18px clamp(12px,3vw,24px) 40px;display:flex;flex-direction:column;gap:18px;">
+
+  <nav aria-label="Pantallas" style="background:#2F6FE0;border-radius:18px;padding:10px;display:flex;gap:6px;flex-wrap:wrap;align-items:center;">
+    <b style="color:#FFFFFF;font-size:13px;letter-spacing:.12em;text-transform:uppercase;padding:0 10px;">Fuera del Feed · Bienvenida</b>
+    <div style="display:flex;gap:6px;flex-wrap:wrap;margin-left:auto;">
+      <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="4">
+        <button type="button" onClick="{{ t.go }}" aria-current="{{ t.cur }}" style="border:0;border-radius:999px;padding:8px 14px;font-size:14px;font-weight:700;cursor:pointer;background:{{ t.bg }};color:{{ t.fg }};display:flex;gap:8px;align-items:center;"><span style="width:22px;height:22px;border-radius:50%;background:{{ t.nb }};color:{{ t.nf }};display:inline-flex;align-items:center;justify-content:center;font-size:12px;">{{ t.n }}</span>{{ t.label }}</button>
+      </sc-for>
+    </div>
+  </nav>
+
+  <sc-if value="{{ s0 }}" hint-placeholder-val="{{ true }}">
+    <section data-screen-label="01 Bienvenida" style="border-radius:24px;overflow:hidden;background:radial-gradient(60% 90% at 100% 0%,rgba(47,111,224,.55),transparent 60%),radial-gradient(60% 90% at 0% 100%,rgba(107,227,215,.30),transparent 62%),#001F19;color:#FFFFFF;padding:clamp(24px,5vw,56px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:28px;align-items:center;animation:proIn .35s ease-out;">
+      <div style="display:flex;flex-direction:column;gap:16px;">
+        <span style="display:inline-flex;align-self:flex-start;align-items:center;gap:8px;background:#6BE3D7;color:#001F19;font-weight:700;font-size:13px;letter-spacing:.12em;text-transform:uppercase;padding:7px 12px;border-radius:8px;"><span style="width:8px;height:8px;border-radius:50%;background:#001F19;animation:onair 1.6s ease-in-out infinite;"></span>Bienvenida</span>
+        <h1 style="font-family:'Roca One Light',serif;font-weight:300;font-size:clamp(40px,6.4vw,64px);line-height:1;margin:0;">Hola. Aquí empieza tu podcast.</h1>
+        <p style="margin:0;font-size:18px;line-height:1.55;">En este bootcamp vas a contar una historia real de tu entorno en un podcast hecho por ti, usando la IA como ayudante. Tú decides; la IA te ayuda a producir.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;font-size:15px;font-weight:700;">
+          <span style="background:rgba(255,255,255,.12);border-radius:999px;padding:7px 12px;">10 episodios</span>
+          <span style="background:rgba(255,255,255,.12);border-radius:999px;padding:7px 12px;">1 podcast propio</span>
+          <span style="background:rgba(255,255,255,.12);border-radius:999px;padding:7px 12px;">1 portafolio publicado</span>
+        </div>
+      </div>
+      <div style="position:relative;width:100%;aspect-ratio:4/3;overflow:hidden;-webkit-mask-image:radial-gradient(ellipse 72% 70% at 55% 50%,#000 55%,transparent 100%);mask-image:radial-gradient(ellipse 72% 70% at 55% 50%,#000 55%,transparent 100%);">
+        <image-slot id="bv-portada" alt="La Redacción de Fuera del Feed" shape="rect" src="assets/e1/01-portada.jpg" placeholder="La Redacción de Fuera del Feed" style="filter:saturate(.84) contrast(1.05) brightness(.98);"></image-slot>
+        <span aria-hidden="true" style="position:absolute;inset:0;pointer-events:none;background-image:url(assets/grano.png);background-size:180px;opacity:.16;mix-blend-mode:overlay;"></span>
+      </div>
+    </section>
+  </sc-if>
+
+  <sc-if value="{{ s1 }}">
+    <section data-screen-label="02 El curso" style="background:#FFFFFF;border-radius:24px;padding:clamp(20px,4vw,40px);display:flex;flex-direction:column;gap:20px;animation:proIn .35s ease-out;">
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <span style="font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#2F6FE0;">De qué trata</span>
+        <h2 style="font-family:'Roca One Light',serif;font-weight:300;font-size:clamp(30px,4.4vw,44px);line-height:1.05;margin:0;">Al final tendrás 4 cosas tuyas</h2>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr));gap:12px;">
+        <sc-for list="{{ products }}" as="p" hint-placeholder-count="4">
+          <div style="border-radius:20px;padding:18px;background:{{ p.bg }};display:flex;flex-direction:column;gap:8px;min-height:150px;">
+            <span style="font-size:30px;line-height:1;">{{ p.e }}</span>
+            <b style="font-size:18px;">{{ p.t }}</b>
+            <span style="font-size:15px;line-height:1.5;color:#34405A;">{{ p.d }}</span>
+          </div>
+        </sc-for>
+      </div>
+      <div style="background:#001F19;color:#FFFFFF;border-radius:20px;padding:18px;display:flex;flex-direction:column;gap:12px;">
+        <b style="font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#6BE3D7;">Tu ruta · 10 episodios</b>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,92px),1fr));gap:8px;">
+          <sc-for list="{{ route }}" as="r" hint-placeholder-count="10">
+            <div style="background:rgba(255,255,255,.08);border-radius:12px;padding:10px;display:flex;flex-direction:column;gap:4px;">
+              <b style="font-size:13px;color:#6BE3D7;">{{ r.n }}</b>
+              <span style="font-size:14px;line-height:1.3;">{{ r.t }}</span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+    </section>
+  </sc-if>
+
+  <sc-if value="{{ s2 }}">
+    <section data-screen-label="03 Proyectos" style="background:#FFFFFF;border-radius:24px;padding:clamp(20px,4vw,40px);display:flex;flex-direction:column;gap:20px;animation:proIn .35s ease-out;">
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <span style="font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#2F6FE0;">Así se ve al final</span>
+        <h2 style="font-family:'Roca One Light',serif;font-weight:300;font-size:clamp(30px,4.4vw,44px);line-height:1.05;margin:0;">Mira 2 proyectos de ejemplo</h2>
+        <p style="margin:0;font-size:16px;line-height:1.55;color:#34405A;">Son ejemplos hechos para este curso. Fíjate en la historia, el audio, la portada y cómo se arma el portafolio.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:16px;">
+        <sc-for list="{{ projects }}" as="p" hint-placeholder-count="2">
+          <article style="border:1px solid #DCE6F5;border-radius:20px;overflow:hidden;display:flex;flex-direction:column;">
+            <button type="button" onClick="{{ p.open }}" aria-label="{{ p.aria }}" style="aspect-ratio:16/10;border:0;padding:0;cursor:pointer;background:{{ p.bg }};position:relative;overflow:hidden;display:block;width:100%;"><iframe src="{{ p.href }}" title="{{ p.t }}" tabindex="-1" aria-hidden="true" loading="lazy" style="position:absolute;top:0;left:0;width:300%;height:300%;border:0;transform:scale(.3333);transform-origin:0 0;pointer-events:none;"></iframe><span style="position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(0,31,25,.55));"></span><span style="position:absolute;left:12px;bottom:12px;background:#FFFFFF;color:#001F19;font-weight:700;font-size:14px;padding:6px 12px;border-radius:999px;">▶ Abrir</span></button>
+            <div style="padding:18px;display:flex;flex-direction:column;gap:10px;flex:1;">
+              <span style="font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#0E6B5E;">{{ p.tag }}</span>
+              <b style="font-size:20px;">{{ p.t }}</b>
+              <span style="font-size:15px;line-height:1.5;color:#34405A;flex:1;">{{ p.d }}</span>
+              <button data-tap="1" type="button" onClick="{{ p.open }}" style="align-self:flex-start;border:0;background:#2F6FE0;color:#FFFFFF;font-weight:700;font-size:15px;padding:10px 18px;border-radius:999px;cursor:pointer;">Ver proyecto</button>
+            </div>
+          </article>
+        </sc-for>
+      </div>
+    </section>
+  </sc-if>
+
+  <sc-if value="{{ s3 }}">
+    <section data-screen-label="04 Antes de empezar" style="background:#FFFFFF;border-radius:24px;padding:clamp(20px,4vw,40px);display:flex;flex-direction:column;gap:20px;animation:proIn .35s ease-out;">
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <span style="font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#2F6FE0;">Antes del Episodio 1</span>
+        <h2 style="font-family:'Roca One Light',serif;font-weight:300;font-size:clamp(30px,4.4vw,44px);line-height:1.05;margin:0;">4 pasos para empezar</h2>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:12px;">
+        <sc-for list="{{ steps }}" as="s" hint-placeholder-count="4">
+          <button type="button" onClick="{{ s.toggle }}" aria-pressed="{{ s.pr }}" style="text-align:left;border:2px solid {{ s.bd }};background:{{ s.bg }};border-radius:20px;padding:18px;display:flex;flex-direction:column;gap:10px;cursor:pointer;color:#001F19;">
+            <div style="display:flex;justify-content:space-between;align-items:center;gap:10px;">
+              <span style="width:36px;height:36px;border-radius:50%;background:#001F19;color:#FFFFFF;display:inline-flex;align-items:center;justify-content:center;font-weight:700;font-size:15px;">{{ s.n }}</span>
+              <span style="font-size:22px;">{{ s.m }}</span>
+            </div>
+            <b style="font-size:18px;">{{ s.t }}</b>
+            <span style="font-size:15px;line-height:1.5;color:#34405A;">{{ s.d }}</span>
+          </button>
+        </sc-for>
+      </div>
+      <div style="background:#FFF3EA;border:2px solid #F47B20;border-radius:18px;padding:14px 18px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;">
+        <img src="assets/boton-bitacora.png" alt="Botón Bitácora del Campus CTC" style="height:54px;width:auto;flex:none;border-radius:12px;background:#FFFFFF;">
+        <div style="flex:1;min-width:220px;display:flex;flex-direction:column;gap:4px;">
+          <b style="font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#9A4310;">Tu bitácora ya te espera</b>
+          <span style="font-size:15px;line-height:1.55;">Está en el <b>Campus CTC</b>, en el botón <b>Bitácora</b>. Ahí registras lo que haces en cada episodio y, al final, envías tu portafolio.</span>
+        </div>
+      </div>
+      <sc-if value="{{ allDone }}">
+        <div style="background:#001F19;color:#FFFFFF;border-radius:20px;padding:18px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;animation:proIn .3s ease-out;">
+          <span style="font-size:28px;">🎙️</span>
+          <span style="flex:1;min-width:200px;font-size:17px;font-weight:700;">Listo. Ya puedes abrir el Episodio 1 · Lo que el feed no muestra.</span>
+        </div>
+      </sc-if>
+    </section>
+  </sc-if>
+
+  <div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;">
+    <sc-if value="{{ hasPrev }}"><button type="button" onClick="{{ prev }}" style="border:1px solid #C5D3EA;background:#FFFFFF;color:#001F19;font-weight:700;font-size:15px;padding:12px 20px;border-radius:999px;cursor:pointer;">← Atrás</button></sc-if>
+    <sc-if value="{{ hasNext }}" hint-placeholder-val="{{ true }}"><button data-tap="1" type="button" onClick="{{ next }}" style="margin-left:auto;border:0;background:#2F6FE0;color:#FFFFFF;font-weight:700;font-size:15px;padding:12px 22px;border-radius:999px;cursor:pointer;">{{ nextL }}</button></sc-if>
+  </div>
+  <sc-if value="{{ modalOn }}">
+    <div role="dialog" aria-modal="true" aria-label="{{ modalT }}" onClick="{{ closeBg }}" style="position:fixed;inset:0;z-index:50;background:rgba(0,31,25,.72);backdrop-filter:blur(3px);display:flex;align-items:center;justify-content:center;padding:clamp(8px,2.5vw,28px);animation:proIn .25s ease-out;">
+      <div style="width:min(100%,1280px);height:min(100%,92vh);background:#FFFFFF;border-radius:20px;overflow:hidden;display:flex;flex-direction:column;box-shadow:0 24px 60px rgba(0,0,0,.4);">
+        <div style="display:flex;align-items:center;gap:10px;padding:10px 12px 10px 18px;background:#001F19;color:#FFFFFF;">
+          <b style="flex:1;min-width:0;font-size:15px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">{{ modalT }}</b>
+          <button type="button" onClick="{{ close }}" aria-label="Cerrar" style="border:0;background:#FFFFFF;color:#001F19;width:36px;height:36px;border-radius:50%;font-size:18px;font-weight:700;cursor:pointer;">✕</button>
+        </div>
+        <iframe src="{{ modalHref }}" title="{{ modalT }}" style="flex:1;width:100%;border:0;background:#FFFFFF;"></iframe>
+      </div>
+    </div>
+  </sc-if>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { i: 0, done: {}, pj: null };
+  componentDidMount() { this.onKey = e => { if (e.key === 'Escape' && this.state.pj !== null) this.setState({ pj: null }); }; window.addEventListener('keydown', this.onKey); }
+  componentWillUnmount() { window.removeEventListener('keydown', this.onKey); try { document.body.style.overflow = ''; } catch (e) {} }
+  componentDidUpdate() { try { document.body.style.overflow = this.state.pj !== null ? 'hidden' : ''; } catch (e) {} }
+  go(i) { this.setState({ i }); try { window.scrollTo({ top: 0, behavior: 'smooth' }); } catch (e) {} }
+  renderVals() {
+    const { i, done, pj } = this.state;
+    const L = ['Bienvenida', 'El curso', 'Proyectos', 'Antes de empezar'];
+    const tabs = L.map((label, k) => ({ label, n: k + 1, go: () => this.go(k), cur: k === i ? 'step' : 'false', bg: k === i ? '#FFFFFF' : 'transparent', fg: k === i ? '#1F4FB0' : '#FFFFFF', nb: k <= i ? '#6BE3D7' : 'rgba(255,255,255,.2)', nf: '#001F19' }));
+    const S = [
+      ['Entra al Campus CTC', 'Ingresa con tu usuario. Ahí están los cuestionarios y tu bitácora.'],
+      ['Cuestionario de caracterización', 'Cuéntanos quién eres y cómo usas la tecnología. No hay respuestas buenas ni malas.'],
+      ['Test de habilidades', 'Una prueba corta para ver desde dónde empiezas. No cuenta para la nota.'],
+      ['Busca tu bitácora', 'Toca el botón Bitácora: la vas a usar en todo el curso.']
+    ];
+    const steps = S.map(([t, d], k) => ({ n: k + 1, t, d, m: done[k] ? '✓' : '○', pr: done[k] ? 'true' : 'false', bg: done[k] ? '#DDF7F3' : '#FFFFFF', bd: done[k] ? '#6BE3D7' : '#DCE6F5', toggle: () => this.setState(s => ({ done: { ...s.done, [k]: !s.done[k] } })) }));
+    const PR = [
+      { tag: 'Serie de video corto', t: 'Al volante', d: 'Lucía cuenta la historia de Marta, una conductora de bus de madrugada, y del pasajero que un día dejó de subir.', href: 'proyectos/al-volante.html', bg: '#EAF2FF' },
+      { tag: 'Narrativa visual con sonido', t: 'Lo que arregla Yesi', d: 'Sami cuenta en viñetas y sonido la historia de Yesi, que arregla bicicletas en el parque y cobra con historias.', href: 'proyectos/lo-que-arregla-yesi.html', bg: '#FFF3EA' }
+    ];
+    return {
+      tabs, s0: i === 0, s1: i === 1, s2: i === 2, s3: i === 3,
+      hasPrev: i > 0, hasNext: i < 3, nextL: i === 2 ? 'Antes de empezar →' : 'Siguiente →',
+      prev: () => this.go(i - 1), next: () => this.go(i + 1),
+      products: [
+        { e: '🔎', t: 'Una historia que importa', d: 'Eliges una historia real de tu entorno y explicas por qué vale la pena contarla.', bg: '#EAF2FF' },
+        { e: '🎧', t: 'Tu podcast', d: 'Dos capítulos con voz, música y edición.', bg: '#DDF7F3' },
+        { e: '🎨', t: 'Su identidad visual', d: 'Portada, colores, logo y un tráiler de 30 segundos.', bg: '#FFF3EA' },
+        { e: '🌐', t: 'Tu portafolio', d: 'Una página publicada con todo tu trabajo, para presentarla en el Estreno.', bg: '#F1EEFF' }
+      ],
+      route: ['Lo que el feed no muestra', 'La historia y su nombre', 'Cómo suena una historia', 'Estudio de grabación', 'Edición: tu capítulo 1', 'Tu capítulo 2', 'La cara de tu historia', 'Tráiler', 'Al aire', 'Estreno'].map((t, k) => ({ n: 'E' + (k + 1), t })),
+      projects: PR.map((p, k) => ({ ...p, open: () => this.setState({ pj: k }), aria: 'Abrir ' + p.t })),
+      modalOn: pj !== null, modalT: pj !== null ? PR[pj].t : '', modalHref: pj !== null ? PR[pj].href : '',
+      close: () => this.setState({ pj: null }), closeBg: e => { if (e.target === e.currentTarget) this.setState({ pj: null }); },
+      steps, allDone: S.every((x, k) => done[k])
+    };
+  }
+}
+</script>
+</body>
+</html>
