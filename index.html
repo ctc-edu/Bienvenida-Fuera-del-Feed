@@ -33,7 +33,7 @@
   <nav aria-label="Pantallas" style="background:#2F6FE0;border-radius:18px;padding:10px;display:flex;gap:6px;flex-wrap:wrap;align-items:center;">
     <b style="color:#FFFFFF;font-size:13px;letter-spacing:.12em;text-transform:uppercase;padding:0 10px;">Fuera del Feed · Bienvenida</b>
     <div style="display:flex;gap:6px;flex-wrap:wrap;margin-left:auto;">
-      <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="4">
+      <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="5">
         <button type="button" onClick="{{ t.go }}" aria-current="{{ t.cur }}" style="border:0;border-radius:999px;padding:8px 14px;font-size:14px;font-weight:700;cursor:pointer;background:{{ t.bg }};color:{{ t.fg }};display:flex;gap:8px;align-items:center;"><span style="width:22px;height:22px;border-radius:50%;background:{{ t.nb }};color:{{ t.nf }};display:inline-flex;align-items:center;justify-content:center;font-size:12px;">{{ t.n }}</span>{{ t.label }}</button>
       </sc-for>
     </div>
@@ -144,6 +144,21 @@
     </section>
   </sc-if>
 
+  <sc-if value="{{ s4 }}">
+    <section data-screen-label="05 Pixie" style="border-radius:24px;overflow:hidden;background:radial-gradient(60% 90% at 100% 0%,rgba(47,111,224,.45),transparent 60%),#001F19;color:#FFFFFF;padding:clamp(24px,5vw,48px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:28px;align-items:center;animation:proIn .35s ease-out;">
+      <div style="display:flex;justify-content:center;"><img src="assets/pixie.png" alt="Pixie, la asistente de Crack the Code, levanta el puño y señala hacia arriba" style="width:min(100%,260px);height:auto;display:block;background:#FFFFFF;border-radius:24px;padding:16px;box-sizing:border-box;"></div>
+      <div style="display:flex;flex-direction:column;gap:16px;">
+        <span style="align-self:flex-start;background:#6BE3D7;color:#001F19;font-weight:700;font-size:13px;letter-spacing:.12em;text-transform:uppercase;padding:7px 12px;border-radius:8px;">Te acompaña</span>
+        <h2 style="font-family:'Roca One Light',serif;font-weight:300;font-size:clamp(34px,5vw,52px);line-height:1.02;margin:0;">Hola, soy Pixie</h2>
+        <p style="margin:0;font-size:18px;line-height:1.55;">Soy el chatbot de Crack the Code. Conozco este curso, así que puedo ayudarte a resolver tus dudas o guiarte en tus actividades.</p>
+        <div style="display:flex;flex-direction:column;gap:8px;">
+          <span style="background:rgba(255,255,255,.1);border-radius:14px;padding:10px 14px;font-size:15px;line-height:1.5;">"¿Qué tengo que registrar hoy en mi bitácora?"</span>
+          <span style="background:rgba(255,255,255,.1);border-radius:14px;padding:10px 14px;font-size:15px;line-height:1.5;">"No entiendo qué es un cold open."</span>
+        </div>
+      </div>
+    </section>
+  </sc-if>
+
   <div style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;">
     <sc-if value="{{ hasPrev }}"><button type="button" onClick="{{ prev }}" style="border:1px solid #C5D3EA;background:#FFFFFF;color:#001F19;font-weight:700;font-size:15px;padding:12px 20px;border-radius:999px;cursor:pointer;">← Atrás</button></sc-if>
     <sc-if value="{{ hasNext }}" hint-placeholder-val="{{ true }}"><button data-tap="1" type="button" onClick="{{ next }}" style="margin-left:auto;border:0;background:#2F6FE0;color:#FFFFFF;font-weight:700;font-size:15px;padding:12px 22px;border-radius:999px;cursor:pointer;">{{ nextL }}</button></sc-if>
@@ -170,7 +185,7 @@ class Component extends DCLogic {
   go(i) { this.setState({ i }); try { window.scrollTo({ top: 0, behavior: 'smooth' }); } catch (e) {} }
   renderVals() {
     const { i, done, pj } = this.state;
-    const L = ['Bienvenida', 'El curso', 'Proyectos', 'Antes de empezar'];
+    const L = ['Bienvenida', 'El curso', 'Proyectos', 'Antes de empezar', 'Pixie'];
     const tabs = L.map((label, k) => ({ label, n: k + 1, go: () => this.go(k), cur: k === i ? 'step' : 'false', bg: k === i ? '#FFFFFF' : 'transparent', fg: k === i ? '#1F4FB0' : '#FFFFFF', nb: k <= i ? '#6BE3D7' : 'rgba(255,255,255,.2)', nf: '#001F19' }));
     const S = [
       ['Entra al Campus CTC', 'Ingresa con tu usuario. Ahí están los cuestionarios y tu bitácora.'],
@@ -184,8 +199,8 @@ class Component extends DCLogic {
       { tag: 'Narrativa visual con sonido', t: 'Lo que arregla Yesi', d: 'Sami cuenta en viñetas y sonido la historia de Yesi, que arregla bicicletas en el parque y cobra con historias.', href: 'proyectos/lo-que-arregla-yesi.html', bg: '#FFF3EA' }
     ];
     return {
-      tabs, s0: i === 0, s1: i === 1, s2: i === 2, s3: i === 3,
-      hasPrev: i > 0, hasNext: i < 3, nextL: i === 2 ? 'Antes de empezar →' : 'Siguiente →',
+      tabs, s0: i === 0, s1: i === 1, s2: i === 2, s3: i === 3, s4: i === 4,
+      hasPrev: i > 0, hasNext: i < 4, nextL: i === 3 ? 'Conoce a Pixie →' : 'Siguiente →',
       prev: () => this.go(i - 1), next: () => this.go(i + 1),
       products: [
         { e: '🔎', t: 'Una historia que importa', d: 'Eliges una historia real de tu entorno y explicas por qué vale la pena contarla.', bg: '#EAF2FF' },
